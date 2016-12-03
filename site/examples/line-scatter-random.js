@@ -1,8 +1,4 @@
-var times = function(n) {
-  return Array.apply(null, new Array(n));
-};
-
-var data = times(52).map(Math.random).reduce(function(data, rnd, index) {
+var data = Chartist.times(52).reduce(function(data, _, index) {
   data.labels.push(index + 1);
   data.series.forEach(function(series) {
     series.push(Math.random() * 100)
@@ -11,7 +7,7 @@ var data = times(52).map(Math.random).reduce(function(data, rnd, index) {
   return data;
 }, {
   labels: [],
-  series: times(4).map(function() { return new Array() })
+  series: Chartist.times(4).map(function() { return [] })
 });
 
 var options = {
